@@ -3,7 +3,7 @@
     "theia": {
         "frontend": {
             "config": {
-                "applicationName": "Theia JavaScript/TypeScript Example",
+                "applicationName": "Theia IDE for Node RED",
                 "preferences": {
                     "files.enableTrash": false
                 }
