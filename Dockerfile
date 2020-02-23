@@ -3,6 +3,7 @@ EXPOSE 4444
 USER root
 
 ADD package.json /theia/
+ADD run.sh .
 
 ENV SHELL=/bin/bash \
   THEIA_DEFAULT_PLUGINS=local-dir:/theia/plugins
@@ -14,3 +15,5 @@ RUN cd /theia/ && \
   yarn theia build && \
   yarn theia download:plugins && \
   chown -R node-red:node-red /theia
+
+ENTRYPOINT ["sh" "run.sh"]
