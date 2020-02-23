@@ -16,4 +16,4 @@ RUN cd /theia/ && \
   yarn theia download:plugins && \
   chown -R node-red:node-red /theia
 
-ENTRYPOINT ["run.sh"]
+ENTRYPOINT ["/bin/sh", "./run.sh"]
