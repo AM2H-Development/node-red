@@ -1,2 +1,1 @@
-cd /theia
-yarn theia start /data --hostname 0.0.0.0 --port 4444 &
+node /theia/src-gen/backend/main.js /data --hostname=0.0.0.0 --port=4444 &
