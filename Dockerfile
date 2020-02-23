@@ -1,11 +1,16 @@
 FROM nodered/node-red:latest
-RUN mkdir /data/theia
-WORKDIR /data/theia
+EXPOSE 4444
+USER root
 
-COPY package.json .
+ADD package.json /theia/
 
-RUN yarn &&
-  yarn theia build &&
-  yarn theia download:plugins
+ENV SHELL=/bin/bash \
+  THEIA_DEFAULT_PLUGINS=local-dir:/theia/plugins
+  
+ENV USE_LOCAL_GIT true
 
-WORKDIR /usr/src/node-red
+RUN cd /theia/ && \
+  yarn && \
+  yarn theia build && \
+  yarn theia download:plugins && \
+  chown -R node-red:node-red /theia
